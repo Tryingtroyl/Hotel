@@ -1,0 +1,35 @@
+{% extends 'base_jinja.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block content %}
+<div class="heading">
+    <center><h1>Welcome</h1></center>
+</div>
+<div class="rooms">
+    <h3>Details about all the rooms are shown below: </h3>
+    <center>
+    <table border="1px" cellpadding="5px">
+        <tr>
+            <th>Room No.</th>
+            <th>Room Type</th>
+            <th>Price</th>
+        </tr>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room['room_no'] }}</td>
+            <td>{{ room['room_type'] }}</td>
+            <td>{{ room['price'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+</div>
+<div class="booking">
+    <a href="{{ url_for('booking') }}">Click here to book a room</a>
+</div>
+<br>
+<div>
+    <a href="{{ url_for('room_details') }}">Room Details (Admin Only)</a>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base_jinja.html' %}
+
+{% block title %} Booking {% endblock %}
+
+{% block content %}
+<div>
+    <form method="post">
+        <div>
+            <label for="date-from">From: </label>
+            <input type="date" name="date-from"/>
+        </div>
+        <div>
+            <label for="date-to">To: </label>
+            <input type="date" name="date-to"/>
+        </div>
+        <div>
+            <label for="room-type"> Select Room Type: </label>
+            <select name="room-type">
+                <option value="A Class">Class A</option>
+                <option value="A Class Premium">Class A Premium</option>
+                <option value="Premium Class">Premium Class</option>
+                <option value="Gold Class">Gold Class</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Check Availability and Book Room">
+        </div>
+    </form>
+</div>
+<div>
+    <center>
+        {% for item in message %}
+        <h3>{{ item }}</h3>
+        {% endfor %}
+    </center>
+</div>
+<br>
+<div>
+    <a href="{{ url_for('room_details') }}">Room Details (Admin Only)</a>
+</div>
+{% endblock %}

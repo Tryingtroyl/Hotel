@@ -1,0 +1,44 @@
+{% extends 'base_jinja.html' %}
+
+{% block title %} Room Details {% endblock %}
+
+{% block content %}
+<div class="rooms">
+    <h3>Details about all the rooms are shown below: </h3>
+    <center>
+    <table border="1px" cellpadding="2px">
+        <tr>
+            <th>Date</th>
+            <th>Room 101</th>
+            <th>Room 102</th>
+            <th>Room 103</th>
+            <th>Room 104</th>
+            <th>Room 105</th>
+            <th>Room 201</th>
+            <th>Room 202</th>
+            <th>Room 203</th>
+            <th>Room 204</th>
+            <th>Room 205</th>
+        </tr>
+        {% for room in availability %}
+        <tr>
+            <td>{{ room['Date'] }}</td>
+            <td>{{ '---' if room['Room-101'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-102'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-103'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-104'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-105'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-201'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-202'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-203'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-204'] else 'Booked'}}</td>
+            <td>{{ '---' if room['Room-205'] else 'Booked'}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+</div>
+<div class="booking">
+    <a href="{{ url_for('booking') }}">Click here to book a room</a>
+</div>
+{% endblock %}
